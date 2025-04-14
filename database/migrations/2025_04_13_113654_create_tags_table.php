@@ -40,5 +40,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('tags');
         Schema::dropIfExists('category_tag');
+        Schema::dropIfExists('post_tag');
     }
 };

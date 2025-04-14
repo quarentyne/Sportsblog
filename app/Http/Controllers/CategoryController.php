@@ -9,7 +9,9 @@ use Illuminate\View\View;
 class CategoryController extends Controller
 {
     public function show(Category $category):View {
-//        dd($category);
-        return view('category.show');
+//        dd($category->tags);
+        return view('category.show', [
+            'category' => $category,
+        ]);
     }
 }

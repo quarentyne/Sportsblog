@@ -1,5 +1,3 @@
-<div>
-    @foreach($category->tags as $tag)
-        {{$tag->name}}
-    @endforeach
-</div>
+<x-layout>
+
+</x-layout>

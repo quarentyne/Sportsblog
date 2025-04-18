@@ -21,8 +21,7 @@
     @endif
 </head>
 <body>
-    <x-header background="{{ $headerBackground }}" color="{{ $headerColor }}">
-
-    </x-header>
+    <x-header background="{{ $headerBackground }}" color="{{ $headerColor }}"></x-header>
+    {{ $slot }}
 </body>
 </html>

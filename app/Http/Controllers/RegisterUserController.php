@@ -6,13 +6,13 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
 class RegisterUserController extends Controller
 {
     public function create(): View {
-        return view('auth.create');
+        return view('auth.register');
     }
 
     public function store(Request $request): RedirectResponse
@@ -28,6 +28,6 @@ class RegisterUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->to('home');
+        return redirect()->route('home');
     }
 }

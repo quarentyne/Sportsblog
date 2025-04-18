@@ -14,6 +14,6 @@ Route::post('/register', [RegisterUserController::class, 'store']);
 
 Route::get('/login', [LoginUserController::class, 'create'])->name('login');
 Route::post('/login', [LoginUserController::class, 'store']);
-Route::post('/logout', [LoginUserController::class, 'destroy']);
+Route::post('/logout', [LoginUserController::class, 'destroy'])->name('logout');
 
 Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('category.show');

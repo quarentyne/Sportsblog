@@ -30,13 +30,13 @@ class LoginUserController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->to('home');
+        return redirect()->route('home');
     }
 
     public function destroy(): RedirectResponse
     {
         Auth::logout();
 
-        return redirect()->to('home');
+        return redirect()->route('home');
     }
 }

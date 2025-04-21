@@ -26,7 +26,7 @@ class AccountController extends Controller
 
         if($request->hasFile('avatar')) {
             $file = $request->file('avatar');
-            $path = $file->store('avatars', 'public');
+            $path = $file->storeAs('avatars', $file->hashName(), 'public_avatars');
         }
 
         $userData = [

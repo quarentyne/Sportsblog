@@ -20,10 +20,18 @@
         </div>
     @endguest
     @auth()
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+        <div class="flex gap-x-5 items-center">
+            <a href="{{ route('post.create') }}" class="rounded-[50%] w-[48px] h-[48px] bg-green p-1 flex justify-center items-center">
+                <img src="{{ asset('images/pencil.svg') }}" alt="Create post" />
+            </a>
+            <a href="{{ route('account') }}" class="rounded-[50%] w-[48px] h-[48px] bg-white p-1">
+                <img src="{{ Auth::user()->avatar ?: asset('images/user-icon.svg') }}" alt="Avatar" />
+            </a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
 
-            <x-button class="bg-red-500 text-white">Logout</x-button>
-        </form>
+                <x-button class="bg-red-500 text-white">Logout</x-button>
+            </form>
+        </div>
     @endauth
 </header>

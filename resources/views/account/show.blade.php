@@ -35,7 +35,7 @@
                     onchange="document.querySelector('#avatarLabel img').src = window.URL.createObjectURL(this.files[0])"
                 />
                 <label id="avatarLabel" for="avatar" class="cursor-pointer">
-                    <img alt="Avatar" class="w-[150px] h-[150px]" src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/user-icon.svg') }}" />
+                    <img alt="Avatar" class="w-[150px] h-[150px]" src="{{ asset('images/' . ($user->avatar ?: 'user-icon.svg')) }}" />
                 </label>
                 @error('avatar')
                 <x-form-error>{{ $message }}</x-form-error>

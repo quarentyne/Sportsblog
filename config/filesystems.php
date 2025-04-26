@@ -58,7 +58,7 @@ return [
             'throw' => false,
             'report' => false,
         ],
-        'public_avatars' => [
+        'public_images' => [
             'driver' => 'local',
             'root' => public_path('images'),
             'url' => env('APP_URL').'/images',

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginUserController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,5 +17,7 @@ Route::get('/login', [LoginUserController::class, 'create'])->name('login');
 Route::post('/login', [LoginUserController::class, 'store']);
 
 Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 require_once ('auth.php');

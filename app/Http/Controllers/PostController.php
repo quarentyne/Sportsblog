@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\File as FileValidation;
 use Illuminate\View\View;
@@ -13,7 +15,11 @@ use Illuminate\View\View;
 class PostController extends Controller
 {
     public function index(): View {
-        return view('post.index');
+        $posts = Post::with(['tags', 'user'])->get();
+
+        return view('post.index', [
+            'posts' => $posts,
+        ]);
     }
 
     public function create(): View {
@@ -49,13 +55,23 @@ class PostController extends Controller
         foreach ($tags as $tag) {
             $tagName = Str::lower(Str::trim($tag));
 
-            $post->tag($tagName);
+            if($tagName) {
+                $post->tag($tagName);
+            }
         }
 
         return redirect()->route('posts');
     }
 
-//    public function destroy($post): RedirectResponse {
-//
-//    }
+    public function destroy(Post $post): RedirectResponse {
+        File::delete(public_path('images/' . $post->image));
+
+        $post->delete();
+
+        return redirect()->route('posts');
+    }
+
+    public function show(Post $post): View {
+        return view ('post.show');
+    }
 }

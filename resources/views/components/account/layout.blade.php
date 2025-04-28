@@ -20,7 +20,7 @@
     @endif
 </head>
 <body>
-<header class="py-5 px-34 flex justify-between items-center bg-white">
+<header class="py-5 px-34 flex justify-between items-center bg-white shadow-md">
     <a href="{{ route('home') }}">
         <img width="180" height="20" src="{{ asset('images/logo_background_white.svg') }}" alt="Logo" />
     </a>

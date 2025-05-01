@@ -13,7 +13,7 @@
             @endforeach
         </div>
     @endif
-    <div class="flex justify-between items-center w-full">
+    <div class="flex justify-between items-center w-full mt-3">
         <div class="flex gap-2 items-center">
             <span class="text-sm">By {{ $author->first_name }} {{ $author->last_name }}</span>
             <i class="w-[3px] h-[3px] bg-stone-800 rounded-full"></i>

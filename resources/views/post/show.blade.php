@@ -6,7 +6,7 @@
                 <img class="w-[48px] h-[48px] rounded-[50%]" alt="Author logo" src="{{ asset('images/' . $post->user->avatar) }}"/>
                 <div class="grid gap-1">
                     <span class="text-sm">By {{ $post->user->first_name }} {{ $post->user->last_name }}</span>
-                    <span class="text-sm text-stone-800">{{ \Carbon\Carbon::parse($post->date)->format('F d, Y') }}</span>
+                    <span class="text-sm text-stone-800">{{ \Carbon\Carbon::parse($post->created_at)->format('F d, Y') }}</span>
                 </div>
             </div>
         </div>

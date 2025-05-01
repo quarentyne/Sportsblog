@@ -15,7 +15,7 @@ use Illuminate\View\View;
 class PostController extends Controller
 {
     public function index(): View {
-        $posts = Post::with(['tags', 'user'])->get();
+        $posts = Post::with(['tags', 'user'])->paginate(10);
 
         return view('post.index', [
             'posts' => $posts,

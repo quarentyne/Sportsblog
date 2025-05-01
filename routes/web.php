@@ -18,6 +18,6 @@ Route::post('/login', [LoginUserController::class, 'store']);
 
 Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
-Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
-
 require_once ('auth.php');
+
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');

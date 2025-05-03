@@ -26,7 +26,7 @@
     </a>
     <nav class="flex gap-x-9 items-center text-black font-bold">
         <a href="{{ route('posts') }}" aria-current="{{ request()->is('posts') ? 'page' : 'false' }}">Posts</a>
-        <a>Comments</a>
+        <a href="{{ route('comments') }}" aria-current="{{ request()->is('comments') ? 'page' : 'false' }}">Comments</a>
         <a href="{{ route('account') }}" aria-current="{{ request()->is('account') ? 'page' : 'false' }}">Settings</a>
     </nav>
     @auth()

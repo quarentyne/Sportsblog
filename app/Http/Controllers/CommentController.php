@@ -11,11 +11,13 @@ use Illuminate\View\View;
 
 class CommentController extends Controller
 {
-//    public function index(Request $request): View {
-//        $comments = Comment::where('user_id', $request->user()->id)->paginate(10);
-//
-//        return view();
-//    }
+    public function index(): View {
+        $comments = Comment::where('user_id', Auth::user()->id)->with('post')->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('comment.index',[
+            'comments' => $comments,
+        ]);
+    }
 
     public function store(Request $request): JsonResponse {
         $request->validate([
@@ -32,5 +34,11 @@ class CommentController extends Controller
         $comment->load(['user:id,avatar,first_name,last_name']);
 
         return response()->json($comment);
+    }
+
+    public function destroy(Comment $comment) {
+        $comment->delete();
+
+        return redirect()->route('comments');
     }
 }

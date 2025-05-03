@@ -72,8 +72,11 @@ class PostController extends Controller
     }
 
     public function show(Post $post): View {
+        $comments = $post->comments()->orderBy('created_at', 'desc')->get();
+
         return view ('post.show', [
-            'post' => $post,
+            'post'      => $post,
+            'comments'  => $comments,
         ]);
     }
 }

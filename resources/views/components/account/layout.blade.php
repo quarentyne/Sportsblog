@@ -20,18 +20,18 @@
     @endif
 </head>
 <body>
-<header class="py-5 px-34 flex justify-between items-center bg-white">
+<header class="mb-5 py-5 px-34 flex justify-between items-center bg-white shadow-md">
     <a href="{{ route('home') }}">
         <img width="180" height="20" src="{{ asset('images/logo_background_white.svg') }}" alt="Logo" />
     </a>
     <nav class="flex gap-x-9 items-center text-black font-bold">
-        <a>Posts</a>
+        <a href="{{ route('posts') }}" aria-current="{{ request()->is('posts') ? 'page' : 'false' }}">Posts</a>
         <a>Comments</a>
         <a href="{{ route('account') }}" aria-current="{{ request()->is('account') ? 'page' : 'false' }}">Settings</a>
     </nav>
     @auth()
         <div class="flex gap-x-5 items-center">
-            <a href="{{ route('post.create') }}" class="rounded-[50%] w-[48px] h-[48px] bg-green p-1 flex justify-center items-center">
+            <a href="{{ route('posts.create') }}" class="rounded-[50%] w-[48px] h-[48px] bg-green p-1 flex justify-center items-center">
                 <img src="{{ asset('images/pencil.svg') }}" alt="Create post" />
             </a>
             <form method="POST" action="{{ route('logout') }}">

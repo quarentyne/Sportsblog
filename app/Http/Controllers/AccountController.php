@@ -27,7 +27,7 @@ class AccountController extends Controller
 
         if($request->hasFile('avatar')) {
             $file = $request->file('avatar');
-            $path = $file->storeAs('avatars', $file->hashName(), 'public_avatars');
+            $path = $file->storeAs('avatars', $file->hashName(), 'public_images');
 
             $oldAvatarPath = User::find($request->user()->id)->avatar;
 

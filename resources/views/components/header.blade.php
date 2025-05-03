@@ -1,5 +1,5 @@
 @props(['background', 'color'])
-<header class="py-5 px-34 flex justify-between items-center bg-{{ $background }}">
+<header class="mb-5 py-5 px-34 flex justify-between items-center bg-{{ $background }} shadow-md">
     <a href="{{ route('home') }}">
         <img width="180" height="20" src="{{ asset('images/logo_background_' . $background . '.svg') }}" alt="Logo" />
     </a>
@@ -21,11 +21,11 @@
     @endguest
     @auth()
         <div class="flex gap-x-5 items-center">
-            <a href="{{ route('post.create') }}" class="rounded-[50%] w-[48px] h-[48px] bg-green p-1 flex justify-center items-center">
+            <a href="{{ route('posts.create') }}" class="rounded-[50%] w-[48px] h-[48px] bg-green p-1 flex justify-center items-center">
                 <img src="{{ asset('images/pencil.svg') }}" alt="Create post" />
             </a>
-            <a href="{{ route('account') }}" class="rounded-[50%] w-[48px] h-[48px] bg-white p-1">
-                <img src="{{ Auth::user()->avatar ?: asset('images/user-icon.svg') }}" alt="Avatar" />
+            <a href="{{ route('account') }}" class="rounded-[50%] w-[48px] h-[48px] bg-white p-1 overflow-hidden">
+                <img src="{{ Auth::user()->avatar ? asset(('images/' . Auth::user()->avatar)) : asset('images/user-icon.svg') }}" alt="Avatar" />
             </a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

@@ -1,4 +1,5 @@
 <x-layout>
+    <p class="text-center text-xl">All posts by tag <b>{{ ucfirst($tag->name) }}</b></p>
     <div class="ml-34 mr-34 grid gap-15">
         <div class="grid grid-cols-2 gap-16 mt-15">
             @foreach($posts as $post)

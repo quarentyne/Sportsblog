@@ -9,9 +9,11 @@ use Illuminate\View\View;
 class CategoryController extends Controller
 {
     public function show(Category $category):View {
-//        dd($category->tags);
+        $posts = $category->posts()->paginate(10);
+
         return view('category.show', [
-            'category' => $category,
+            'category'  => $category,
+            'posts'     => $posts,
         ]);
     }
 }

@@ -30,7 +30,7 @@ class LoginUserController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->route('home');
+        return redirect()->route('posts');
     }
 
     public function destroy(): RedirectResponse

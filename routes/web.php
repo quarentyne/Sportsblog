@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,3 +22,4 @@ Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->na
 require_once ('auth.php');
 
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('tags/{tag:name}/posts', [TagController::class, 'show'])->name('tags.show');

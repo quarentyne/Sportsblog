@@ -9,7 +9,7 @@
     @if(count($tags))
         <div class="flex items-center gap-2 mb-2 mt-8">
             @foreach($tags as $tag)
-                <x-tag>{{ $tag->name }}</x-tag>
+                <x-tag href="{{ route('tags.show', ['tag' => $tag->name]) }}">{{ $tag->name }}</x-tag>
             @endforeach
         </div>
     @endif

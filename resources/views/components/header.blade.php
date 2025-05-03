@@ -1,5 +1,5 @@
 @props(['background', 'color'])
-<header class="py-5 px-34 flex justify-between items-center bg-{{ $background }} shadow-md">
+<header class="mb-5 py-5 px-34 flex justify-between items-center bg-{{ $background }} shadow-md">
     <a href="{{ route('home') }}">
         <img width="180" height="20" src="{{ asset('images/logo_background_' . $background . '.svg') }}" alt="Logo" />
     </a>

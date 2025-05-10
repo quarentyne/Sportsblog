@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $guarded = [];
 
@@ -35,5 +36,11 @@ class Post extends Model
 
     public function comments(): HasMany {
         return $this->hasMany(Comment::class);
+    }
+
+    public function toSearchableArray(): array {
+        return [
+            'title' => $this->title,
+        ];
     }
 }

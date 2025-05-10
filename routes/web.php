@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginUserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ require_once ('auth.php');
 
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('tags/{tag:name}/posts', [TagController::class, 'show'])->name('tags.show');
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');
